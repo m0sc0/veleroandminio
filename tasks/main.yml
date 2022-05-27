@@ -1,3 +1,6 @@
 ---
-  - include_tasks: velero.yml
-  - include_tasks: minio.yml
+  - include_tasks: velero-server.yml
+  - include_tasks: minio-server.yml
+  - include_tasks: minio-client.yml
+  - include_tasks: velero-client.yml
+  - include_tasks: velero-install.yml

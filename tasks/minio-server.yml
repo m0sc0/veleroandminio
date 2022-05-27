@@ -1,5 +1,5 @@
 ---
-  - name: Create minIO directories
+  - name: Create minIO directories for minIO server
     file:
       path: "{{ item }}"
       state: directory
@@ -12,10 +12,12 @@
       name: minio
       image: minio/minio
       state: started
+      recreate: yes
       ports:
-        - 9090:9090
-      volumes: /minio/config:/root/.minio:z
-      volumes: /minio/data:/data:z
+        - 9000:9000
+      volumes:
+        -  /minio/config:/root/.minio:z
+        -  /minio/data:/data:z
       env:
         MINIO_ACCESS_KEY: "MINIOKEYMINIO"
         MINIO_SECRET_KEY: "MINIOSECRETKEYMINIO"
