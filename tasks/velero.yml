@@ -1,0 +1,8 @@
+---
+# tasks file for velero
+  - name: Velero repository clone
+    ansible.builtin.git:
+     repo: 'https://github.com/vmware-tanzu/velero.git'
+     dest: $HOME/repo/velero
+     update: no
+

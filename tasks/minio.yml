@@ -1,0 +1,22 @@
+---
+  - name: Create minIO directories
+    file:
+      path: "{{ item }}"
+      state: directory
+      mode: 0775
+    loop:
+      - /minio/data
+      - /minio/config
+  - name: Create MinIO container
+    containers.podman.podman_container:
+      name: minio
+      image: minio/minio
+      state: started
+      ports:
+        - 9090:9090
+      volumes: /minio/config:/root/.minio:z
+      volumes: /minio/data:/data:z
+      env:
+        MINIO_ACCESS_KEY: "MINIOKEYMINIO"
+        MINIO_SECRET_KEY: "MINIOSECRETKEYMINIO"
+      command: server /data
