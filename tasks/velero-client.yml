@@ -8,6 +8,7 @@
       src: /tmp/velero-v1.4.2-linux-amd64.tar.gz
       dest: /tmp
   - name: Copy file to /usr/local/bin/
+    become: yes
     ansible.builtin.copy:
       src: /tmp/velero-v1.4.2-linux-amd64/velero
       dest: /usr/local/bin/

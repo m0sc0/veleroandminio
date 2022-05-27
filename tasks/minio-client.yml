@@ -1,5 +1,6 @@
 ---
   - name: Download minIO client
+    become: yes
     get_url:
       url: https://dl.min.io/client/mc/release/linux-amd64/mc
       dest: /usr/local/bin/

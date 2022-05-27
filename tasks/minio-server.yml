@@ -8,6 +8,7 @@
       - /minio/data
       - /minio/config
   - name: Create MinIO container
+    become: yes
     containers.podman.podman_container:
       name: minio
       image: minio/minio
