@@ -1,16 +1,16 @@
 ---
   - name: Download Velero client
     get_url:
-      url: https://github.com/vmware-tanzu/velero/releases/download/v1.4.2/velero-v1.4.2-linux-amd64.tar.gz
+      url: https://github.com/vmware-tanzu/velero/releases/download/v1.8.1/velero-v1.8.1-linux-amd64.tar.gz
       dest: /tmp
   - name: Extract velero tar gz  into /tmp
     ansible.builtin.unarchive:
-      src: /tmp/velero-v1.4.2-linux-amd64.tar.gz
+      src: /tmp/velero-v1.8.1-linux-amd64.tar.gz
       dest: /tmp
   - name: Copy file to /usr/local/bin/
     become: yes
     ansible.builtin.copy:
-      src: /tmp/velero-v1.4.2-linux-amd64/velero
+      src: /tmp/velero-v1.8.1-linux-amd64/velero
       dest: /usr/local/bin/
       mode: '0555'
   
